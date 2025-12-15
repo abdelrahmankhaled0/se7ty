@@ -1,12 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:se7ty/core/routes/app_routes.dart';
+import 'package:se7ty/core/services/local/shared_pref.dart';
 import 'package:se7ty/core/utils/app_theme.dart';
 import 'package:se7ty/firebase_options.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPref.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await EasyLocalization.ensureInitialized();
   runApp(
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      theme: AppTheme.lighttheme,
+      theme: AppTheme.lightTheme,
       routerConfig: AppRoutes.routes,
       debugShowCheckedModeBanner: false,
     );

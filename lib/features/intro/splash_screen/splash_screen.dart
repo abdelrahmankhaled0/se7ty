@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:se7ty/core/constants/app_images.dart';
 import 'package:se7ty/core/routes/app_navigations.dart';
 import 'package:se7ty/core/routes/app_routes.dart';
+import 'package:se7ty/core/services/local/shared_pref.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,9 +14,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    bool isOnBoardingShown = SharedPref.getOnBoardingShown();
     Future.delayed(Duration(seconds: 3), () {
-      // ignore: use_build_context_synchronously
-      AppNavigations.pushReplacementTo(context, AppRoutes.onBoarding);
+      if (isOnBoardingShown) {
+        AppNavigations.pushReplacementTo(context, AppRoutes.welcome);
+      } else {
+        AppNavigations.pushReplacementTo(context, AppRoutes.onBoarding);
+      }
     });
     super.initState();
   }

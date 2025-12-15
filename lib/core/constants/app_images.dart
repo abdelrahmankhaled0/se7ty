@@ -7,4 +7,5 @@ class AppImages {
   static const String onBoarding2Svg = "assets/icons/ontwo.svg";
   static const String onBoarding3Svg = "assets/icons/onthree.svg";
   static const String welcomeImage = "assets/images/welcome-bg.png";
+  static const String docImage = "assets/images/doc.png";
 }

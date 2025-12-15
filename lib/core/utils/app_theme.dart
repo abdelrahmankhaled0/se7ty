@@ -3,12 +3,19 @@ import 'package:se7ty/core/utils/app_colors.dart';
 import 'package:se7ty/core/utils/app_fonts.dart';
 
 class AppTheme {
-  static ThemeData get lighttheme {
+  static ThemeData get lightTheme {
     return ThemeData(
+      textSelectionTheme: TextSelectionThemeData(
+        selectionHandleColor: AppColors.primaryColor,
+      ),
       fontFamily: AppFonts.cairoFont,
       scaffoldBackgroundColor: AppColors.lightColor,
-      appBarTheme: AppBarThemeData(backgroundColor: AppColors.lightColor),
-      inputDecorationTheme: InputDecorationThemeData(
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.lightColor,
+        surfaceTintColor: Colors.transparent,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(width: 1, color: AppColors.secondryColor),
@@ -21,11 +28,19 @@ class AppTheme {
           borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(width: 1, color: AppColors.secondryColor),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(width: 1, color: AppColors.redColor),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(width: 1.5, color: AppColors.redColor),
+        ),
       ),
     );
   }
 
-  static darkTheme() {
-    return null;
+  static ThemeData get darkTheme {
+    return ThemeData();
   }
 }

@@ -5,6 +5,7 @@ import 'package:se7ty/core/routes/app_navigations.dart';
 import 'package:se7ty/core/routes/app_routes.dart';
 import 'package:se7ty/core/utils/app_colors.dart';
 import 'package:se7ty/core/utils/app_text_style.dart';
+import 'package:se7ty/features/auth/data/user_type_enum.dart';
 
 class WelecomeScreen extends StatelessWidget {
   const WelecomeScreen({super.key});
@@ -73,7 +74,13 @@ class WelecomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            AppNavigations.pushTo(
+                              context,
+                              AppRoutes.login,
+                              extra: UserTypeEnum.doctor,
+                            );
+                          },
                           child: Text(
                             'دكتور',
                             style: AppTextStyle.textStyle20.copyWith(
@@ -100,7 +107,11 @@ class WelecomeScreen extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            AppNavigations.pushTo(context, AppRoutes.login);
+                            AppNavigations.pushTo(
+                              context,
+                              AppRoutes.login,
+                              extra: UserTypeEnum.patient,
+                            );
                           },
                           child: Text(
                             'مريض',
