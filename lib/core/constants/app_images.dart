@@ -8,4 +8,5 @@ class AppImages {
   static const String onBoarding3Svg = "assets/icons/onthree.svg";
   static const String welcomeImage = "assets/images/welcome-bg.png";
   static const String docImage = "assets/images/doc.png";
+  static const String docCard = "assets/images/doctor-card.png";
 }

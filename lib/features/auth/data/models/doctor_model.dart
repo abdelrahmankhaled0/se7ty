@@ -16,7 +16,7 @@ class DoctorModel {
     this.name,
     this.image,
     this.specialization,
-    this.rating,
+    this.rating = 3,
     this.email,
     this.phone1,
     this.phone2,

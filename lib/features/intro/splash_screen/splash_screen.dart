@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     bool isOnBoardingShown = SharedPref.getOnBoardingShown();
+    //User? user = FirebaseAuth.instance.currentUser;
     Future.delayed(Duration(seconds: 3), () {
       if (isOnBoardingShown) {
         AppNavigations.pushReplacementTo(context, AppRoutes.welcome);

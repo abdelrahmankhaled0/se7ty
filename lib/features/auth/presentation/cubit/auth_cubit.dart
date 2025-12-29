@@ -41,6 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
       user?.updateDisplayName(usernameController.text);
 
       if (userTypeEnum == UserTypeEnum.doctor) {
+        user?.updatePhotoURL("2");
         var model = DoctorModel(
           name: usernameController.text,
           email: emailController.text,
@@ -51,6 +52,7 @@ class AuthCubit extends Cubit<AuthState> {
             .doc(user?.uid)
             .set(model.toJson());
       } else if (userTypeEnum == UserTypeEnum.patient) {
+        user?.updatePhotoURL("1");
         var model = PatientModel(
           name: usernameController.text,
           email: emailController.text,
